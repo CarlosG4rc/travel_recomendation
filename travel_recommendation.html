@@ -3,16 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>Travel Recommendation</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="./index.html" id="home">Home </a></li>
-                <li><a href="./contact.html" id="contact">Contact Us </a></li>
-                <li><input type="text" id="conditionInput" placeholder="Enter a destination or keyword">  </li>
-                <li><button id='btnSearch'>Search</button></li>
-                <li><button id='btnSearch'>Clear</button></li>
-            </ul>
-        </nav>
+        <header class="site-header">
+            <div class="contenedor">
+                <div class="barra">
+                    <a href="#">
+                        <h1 class="no-margin" style="color: #ffffff;">TravelinLife</h1>
+                    </a>
+                    <nav class="navegacion" id="myNavbar">
+                        <a href="#" class="btn ">Home</a>
+                        <a href="/about_us.html" class="btn ">About us</a>
+                        <a href="/contact_us.html" class="btn ">Contact us</a>
+                    </nav>
+                    <ul>
+                        <li><input type="text" id="destInput" placeholder="Enter a destination">  </li>
+                        <li><button id='btnSearch'>Search</button>
+                    </ul>
+                </div>
+                <div class="texto-header">
+                    <h2 class="no-margin">Explore Dream destination</h2>
+                    <p class="no-margn">It encourages exploration of unfamiliar terrtories, embracing diverse cultures and landscapes, while pursuing the desired destination thar captivates the heart and ignites a sese of wonder.</p>
+                </div>
+        </header>
+        
+        <div class="searchCondition">
+            <div id="result"></div>
+        </div>
+        <script src="./travel_recommendation.js"></script>
     </body>
 </html>
