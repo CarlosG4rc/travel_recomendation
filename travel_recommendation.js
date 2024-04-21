@@ -1,32 +1,35 @@
+const resultDiv = document.getElementById('result');
+resultDiv.innerHTML = '';
+
 function searchCondition() {
   const input = document.getElementById('destInput').value.toLowerCase();
-  const resultDiv = document.getElementById('result');
-  resultDiv.innerHTML = '';
-
   fetch('travel_recomendation_api.json')
-    .then(response => response.json())
-    .then(data => {
-        let results = [];
-        
-
-        // sections.forEach(section => {
-        data[input].forEach(item => {
-            if (item.name.toLowerCase().includes(input)) {
-                results.push(item);
-            }
-
-            if (item.cities) {
-                item.cities.forEach(city => {
-                    if (city.name.toLowerCase().includes(input)) {
-                        results.push(city);
-                    }
-                });
-            }
+  .then(response => response.json())
+  .then(data => {
+    
+    if (input === "temples" || input === "beaches"){
+      data[input].forEach(element => {
+        resultDiv.innerHTML += `<h2>${element.name}</h2>`;
+        resultDiv.innerHTML += `<img src="${element.imageUrl}" alt="hjh">`;
+        resultDiv.innerHTML += `<p>${element.description}</p>`;
+      });
+    }
+    if (input === "countries"){
+      data[input].forEach(element => {
+        resultDiv.innerHTML += `<h2>${element.name}</h2>`;
+        resultDiv.innetHTML += `<h2>Cities</h2>`;
+        element.cities.forEach(item => {
+          resultDiv.innerHTML += `<h2>${item.name}</h2>`;
+          resultDiv.innerHTML += `<img src="${item.imageUrl}" alt="hjh">`;
+          resultDiv.innerHTML += `<p>${item.description}</p>`;
         });
-        // });
-        console.log(results);
-    })
-
+      });
+    }
+  });
 }
 
 btnSearch.addEventListener('click', searchCondition);
+btnClear.addEventListener('click', () => {
+  resultDiv.innerHTML = '';
+  document.getElementById('destInput').value = '';
+});
