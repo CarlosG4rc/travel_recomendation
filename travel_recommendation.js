@@ -12,6 +12,7 @@ function searchCondition() {
         resultDiv.innerHTML += `<h2>${element.name}</h2>`;
         resultDiv.innerHTML += `<img src="${element.imageUrl}" alt="hjh">`;
         resultDiv.innerHTML += `<p>${element.description}</p>`;
+        resultDiv.innerHTML += `<p></p>`;
       });
     }
     if (input === "countries"){
