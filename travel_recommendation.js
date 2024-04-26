@@ -2,6 +2,9 @@ const resultDiv = document.getElementById('result');
 resultDiv.innerHTML = '';
 
 function searchCondition() {
+  
+  resultDiv.innerHTML = '';
+
   const input = document.getElementById('destInput').value.toLowerCase();
   fetch('travel_recomendation_api.json')
   .then(response => response.json())
@@ -10,7 +13,7 @@ function searchCondition() {
     if (input === "temples" || input === "beaches"){
       data[input].forEach(element => {
         resultDiv.innerHTML += `<h2>${element.name}</h2>`;
-        resultDiv.innerHTML += `<img src="${element.imageUrl}" alt="hjh">`;
+        resultDiv.innerHTML += `<img src="${element.imageUrl}" style="width:20%;" alt="hjh">`;
         resultDiv.innerHTML += `<p>${element.description}</p>`;
         resultDiv.innerHTML += `<p></p>`;
       });
@@ -21,7 +24,7 @@ function searchCondition() {
         resultDiv.innetHTML += `<h2>Cities</h2>`;
         element.cities.forEach(item => {
           resultDiv.innerHTML += `<h2>${item.name}</h2>`;
-          resultDiv.innerHTML += `<img src="${item.imageUrl}" alt="hjh">`;
+          resultDiv.innerHTML += `<img src="${item.imageUrl}" style="width:20%;" alt="hjh">`;
           resultDiv.innerHTML += `<p>${item.description}</p>`;
         });
       });
